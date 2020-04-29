@@ -49,6 +49,54 @@ function openPopup(args){
 }
 ```
 
+## Usage in Vue
+
+```js
+// in main.js
+import Vue from 'nativescript-vue'
+import Popup from 'nativescript-popup/vue'
+
+Vue.use(Popup)
+```
+
+In components
+
+```js
+// this is the component to show as content
+import PopupComponent from './PopupComponent'
+
+export default {
+  methods: {
+    async showPopup(args) {
+      // show(anchor, component, options)
+      const res = await this.$popup.show(args.object, PopupComponent, {
+        width: 200,
+        height: 200,
+        backgroundColor: "#22543D",
+        elevation: 20,
+      });
+      console.log(`Selected item from popup: ${res}`);
+    },
+  },
+};
+```
+
+```html
+<!-- PopupComponent.vue -->
+<template>
+  <StackLayout>
+    <Label
+      v-for="i in 5"
+      :key="i"
+      :text="`Hello Popup! ${i}`"
+      color="white"
+      fontSize="24"
+      @tap="$popup.close(i)"
+    />
+  </StackLayout>
+</template>
+```
+
 ## API
 
 ## Constructor
