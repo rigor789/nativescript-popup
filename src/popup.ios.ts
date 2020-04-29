@@ -2,7 +2,7 @@ import * as builder from 'tns-core-modules/ui/builder';
 import * as fs from 'tns-core-modules/file-system';
 import { Common, PopupOptions } from './popup.common';
 import { View } from 'tns-core-modules/ui/core/view';
-import { topmost } from 'tns-core-modules/ui/frame';
+import { Frame } from 'tns-core-modules/ui/frame';
 import { ios } from 'tns-core-modules/ui/utils';
 import { device, screen } from 'tns-core-modules/platform';
 import { layout } from 'tns-core-modules/utils/utils';
@@ -50,7 +50,7 @@ export class Popup extends Common {
             }
             // check the view argument
             if (view instanceof View) {
-                topmost()._addView(view);
+                Frame.topmost()._addView(view);
                 this._stylePopup(view, isTablet);
                 this._popupController.preferredContentSize =
                     view.nativeView.bounds.size;
@@ -68,7 +68,7 @@ export class Popup extends Common {
                 } else {
                     component = builder.load(<any>view) as View;
                 }
-                topmost()._addView(component);
+                Frame.topmost()._addView(component);
                 this._stylePopup(component, isTablet);
                 this._popupController.preferredContentSize =
                     component.nativeView.bounds.size;
@@ -86,7 +86,7 @@ export class Popup extends Common {
                     source.nativeView.frame.size.height
                 );
                 this._popupController.view.addSubview(nativeView);
-                (<UINavigationController>topmost().ios
+                (<UINavigationController>Frame.topmost().ios
                     .controller).presentModalViewControllerAnimated(
                     this._popupController,
                     true
@@ -100,7 +100,7 @@ export class Popup extends Common {
                     source.frame.size.height
                 );
                 this._popupController.view.addSubview(nativeView);
-                (<UINavigationController>topmost().ios
+                (<UINavigationController>Frame.topmost().ios
                     .controller).presentModalViewControllerAnimated(
                     this._popupController,
                     true

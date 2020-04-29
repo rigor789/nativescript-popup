@@ -17,9 +17,9 @@
 ```
 
 ```ts
-    import { Popup } from 'nativescript-popup';
+import { Popup } from 'nativescript-popup';
 
-    function openPopup(args){
+function openPopup(args){
     const popup = new Popup({
         backgroundColor:'white' | '#fff',
         height:100,
@@ -46,7 +46,7 @@
     /* -- Android */
 
     popup.showPopup(anchor: View | nativeView , view: View | nativeView);
-    }
+}
 ```
 
 ## API
