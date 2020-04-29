@@ -31,4 +31,4 @@ demo-ng/platforms
 demo-ng/report/report.html
 demo-ng/report/stats.json
 package-lock.json
-!demo-vue/app/main.js
+!demo-vue

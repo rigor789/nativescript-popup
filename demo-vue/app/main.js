@@ -8,6 +8,5 @@ Vue.config.silent = (TNS_ENV === 'production')
 Vue.use(Popup)
 
 new Vue({
-  
   render: h => h('frame', [h(App)])
 }).$start()
