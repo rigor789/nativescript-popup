@@ -31,6 +31,7 @@ export default {
         width: 200,
         height: 200,
         backgroundColor: "#22543D",
+        elevation: 20,
       });
       console.log(`Selected item from popup: ${res}`);
     },
