@@ -124,6 +124,7 @@ export class Popup extends Common {
     public hidePopup(data?: any) {
         this.resolveData = data;
         this._popupController.dismissModalViewControllerAnimated(true);
+        this.didDismiss()
     }
 
     private _stylePopup(view, isTablet) {
